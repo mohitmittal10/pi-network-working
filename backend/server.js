@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com', // Gmail SMTP server
@@ -18,7 +18,10 @@ const path = require('path');
 app.use(express.static(path.join(__dirname, 'frontend')));
 
 // Middleware to parse form data
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 
 // Route to handle form submission
 app.post('/send-email', (req, res) => {
