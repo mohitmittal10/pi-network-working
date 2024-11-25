@@ -312,6 +312,9 @@ button:hover {
   .social-icons{
     display: none;
   }
+  .nav{
+    display: none !important;
+  }
 }
 
 nav#nav-menu {
