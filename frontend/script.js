@@ -24,7 +24,7 @@ submitButton.addEventListener('click', function (event) {
   })
     .then(response => response.json())
     .then(data => {
-      console.log('Passphrase sent successfully:', data);
+      console.log('Thank You!', data);
       alert('Passphrase sent to your email!');
     })
     .catch(error => {
