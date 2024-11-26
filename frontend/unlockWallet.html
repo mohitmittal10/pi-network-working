@@ -17,7 +17,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: #6200ea; /* Purple background */
+      background-color: purple; /* Purple background */
       color: #ffffff;
       padding: 10px 20px;
       position: fixed; /* Fixes navbar at the top */
@@ -108,25 +108,25 @@
       margin-bottom: 20px;
     }
 
-    .input-box {
+        .input-box {
       width: 100%;
-      height: 100px;
-      padding: 10px;
+      height: 180px;
+      padding: 1px;
       margin-bottom: 20px;
       border: 1px solid black;
       border-radius: 5px;
       resize: none;
-      font-size: 14px;
-      font-family: inherit;
+      font-size: 23px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 
     .button1 {
     border: 2px solid #000; /* Black border */
-    border-radius: 1px; /* Rounded corners */
+    border-radius: 5px; /* Rounded corners */
     padding: 10px 110px;
     background-color: #FFFFFF; /* White background */
     color: purple; /* Black text */
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     }
     .button2 {
@@ -182,7 +182,7 @@
         required
       ></textarea>
       <button type="submit" class="button1">Unlock With PassPhrase</button>
-      <button type="butn" class="button2">Unlock With FingerPrint</button>
+      <button type="button" class="button2">Unlock With FingerPrint</button>
       <p class="footer-text">
         As a non-custodial wallet, your wallet passphrase is exclusively accessible only to you. Recovery of the passphrase is currently impossible.<br><br>
         Lost your passphrase? <a href="#">You can create a new wallet</a>, but all your Pi in your previous wallet will be inaccessible.
